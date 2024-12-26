@@ -7,34 +7,25 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest  # Use Windows environment for CI/CD
+    runs-on: ubuntu-latest  # Can be windows if you must use it
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2  # Check out the repository
+        uses: actions/checkout@v2
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '16'  # Set Node.js version to 16
-
-      - name: Cache npm dependencies (Optional)
-        uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+          node-version: '16'
 
       - name: Install dependencies
-        run: npm install  # Install the dependencies
+        run: npm install
 
       - name: Build the project
-        run: npm run build  # Build the project
+        run: npm run build
 
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4  # Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages (using peaceiris action)
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          branch: gh-pages  # Deployment branch
-          folder: dist  # Folder with built assets
-          token: ${{ secrets.GITHUB_TOKEN }}  # GitHub token for deployment
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist  # The directory to deploy
