@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <header>
-      <h1>Your Name</h1>
+      <h1>AINI MD. RAZALI</h1>
       <p>Contact: your.email@example.com | (123) 456-7890</p>
     </header>
     <main>
