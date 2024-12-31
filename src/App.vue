@@ -14,6 +14,11 @@
         <p>Contact: ainizarel96@gmail.com | (+6) 013-4919140</p>
         <a class="action-btn" href="#summary">View My Work</a>
       </div>
+      <!-- Language Selector -->
+      <div class="language-switcher">
+        <button @click="changeLanguage('en')">English</button>
+        <button @click="changeLanguage('es')">Español</button>
+      </div>
     </header>
     <main>
       <section id="summary">
