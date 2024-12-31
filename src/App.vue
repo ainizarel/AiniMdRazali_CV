@@ -17,7 +17,7 @@
       <!-- Language Selector -->
       <div class="language-switcher">
         <button @click="changeLanguage('en')">English</button>
-        <button @click="changeLanguage('es')">Español</button>
+        <button @click="changeLanguage('malay')">Español</button>
       </div>
     </header>
     <main>
@@ -80,6 +80,11 @@
 <script>
 export default {
   name: "App",
+  methods: {
+    changeLanguage(lang) {
+      this.$i18n.locale = lang; // Change the current language
+    },
+  },
 };
 </script>
 
@@ -207,4 +212,26 @@ footer ul li a {
 footer ul li a:hover {
   color: #81C784;
 }
+
+/* Optional: Style the language switcher */
+.language-switcher {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.language-switcher button {
+  margin: 0 5px;
+  padding: 5px 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.language-switcher button:hover {
+  background-color: #81C784;
+}
+
 </style>
