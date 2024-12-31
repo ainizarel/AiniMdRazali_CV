@@ -2,7 +2,7 @@
   <div id="app">
     <header>
       <h1>AINI MD. RAZALI</h1>
-      <p>Contact: ainizarel96@gmail.com | (+6)013-4919140</p>
+      <p>Contact test: ainizarel96@gmail.com | (+6)013-4919140</p>
     </header>
     <main>
       <section>
