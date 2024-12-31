@@ -17,7 +17,7 @@
       <!-- Language Selector -->
       <div class="language-switcher">
         <button @click="changeLanguage('en')">English</button>
-        <button @click="changeLanguage('malay')">Español</button>
+        <button @click="changeLanguage('malay')">Malaysia</button>
       </div>
     </header>
     <main>
