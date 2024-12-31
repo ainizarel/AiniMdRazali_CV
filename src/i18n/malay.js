@@ -1,7 +1,8 @@
 export default {
-    summary: "Resumen Profesional",
-    experience: "Experiencia Laboral",
-    skills: "Habilidades",
-    education: "Educación",
-    contact: "Contacto",
+    summary: "Ringkasan Profesional",
+    experience: "Pengalaman Kerja",
+    skills: "Kemahiran",
+    education: "Pendidikan",
+    professionalSummaryText: "Seorang profesional yang sangat bermotivasi dengan kepakaran terbukti.",
   };
+  
