@@ -1,0 +1,17 @@
+$light-theme: (
+  background-color: #f8fff7,
+  text-color: #333,
+  header-background: linear-gradient(to right, #4CAF50, #81C784),
+  header-text-color: white,
+  button-background: #fff,
+  button-text-color: #4CAF50,
+);
+
+$dark-theme: (
+  background-color: #3d473c,
+  text-color: #f7f7f7,
+  header-background: #333,
+  header-text-color: #fff,
+  button-background: #444,
+  button-text-color: #f7f7f7,
+);

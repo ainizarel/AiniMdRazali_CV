@@ -1,0 +1,15 @@
+@mixin apply-theme($theme) {
+    background-color: map-get($theme, background-color);
+    color: map-get($theme, text-color);
+  
+    header {
+      background: map-get($theme, header-background);
+      color: map-get($theme, header-text-color);
+    }
+  
+    button {
+      background: map-get($theme, button-background);
+      color: map-get($theme, button-text-color);
+    }
+  }
+  

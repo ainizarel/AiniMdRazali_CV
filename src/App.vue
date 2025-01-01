@@ -1,24 +1,35 @@
 <template>
    <div id="app" :class="theme">
    <div id="body">
-       <!-- Sidebar Navigation -->
-  <aside class="sidebar">
+
+
+  <!-- Sidebar Navigation -->
+<aside :class="['sidebar', { 'collapsed': !showSidebar }]">
+  <div v-show="showSidebar" class="content">
     <!-- Profile Picture -->
     <div class="profile-picture">
-      <img src="path/to/your/profile-picture.jpg" alt="Profile Picture" />
+      <img :src="require('@/assets/profilepic.jpg')" alt="Profile Picture" />
     </div>
+  </div>
+</aside>
 
-    <!-- Navigation Links -->
-    <nav>
-      <ul>
-        <li><a href="#summary">{{ $t('summary') }}</a></li>
+<div :class="['bodyContent', showSidebar ? 'sidebar-open' : 'sidebar-collapsed']">
+<!-- Top Navigation Bar -->
+
+<nav class="top-nav">
+  <button @click="toggleSidebar" class="toggle-btn">Toggle Sidebar</button>
+  <ul>
         <li><a href="#education">{{ $t('education') }}</a></li>
         <li><a href="#experience">{{ $t('experience') }}</a></li>
         <li><a href="#skills">{{ $t('skills') }}</a></li>
-        <li><a href="#education">{{ $t('my_project') }}</a></li>
-      </ul>
-    </nav>
-  </aside>
+        <li><a href="#projects">{{ $t('my_project') }}</a></li>
+        <li>
+        <a href="/public/CV-Aini.pdf" download="CV-Aini.pdf" class="download-resume">
+          {{ $t('download_resume') }}
+        </a>
+        </li>
+  </ul>
+</nav>
  <header>
     <div class="intro">
       <h1>AINI MD. RAZALI</h1>
@@ -43,18 +54,9 @@
           </a>
         </li>
       </ul>
-      <a class="action-btn" href="#summary">
-        {{ $t('view_my_work') }}
-      </a>
     </div>
   </header>
     <main>
-      <section id="summary">
-        <h2>{{ $t('professional_summary_title') }}</h2>
-        <p>
-          {{ $t('professional_summary_content') }}
-        </p>
-      </section>
       <section id="experience">
         <h2>{{ $t('work_experience_title') }}</h2>
         <ul>
@@ -94,9 +96,16 @@
         <p><strong>University Name</strong> - Bachelor's Degree in [Field of Study]</p>
       </section>
     </main>
-    <footer>
-      
-    </footer>
+<footer class="footer">
+  <p>
+    This resume website is proudly built by <strong>Aini Razali</strong> using <strong>Vue.js</strong>.<br />
+    <strong> Hire me </strong> if you think I’m the right talent for your team!
+  </p>
+</footer>
+
+
+
+    </div>
 
     <!-- Floating Settings Button -->
     <button class="settings-btn" @click="toggleSettings">⚙</button>
@@ -116,7 +125,6 @@
           </option>
         </select>
       </div>
-
     </div>
     </div>
   </div>
@@ -130,6 +138,7 @@ export default {
       selectedLanguage: "en", // Default language
       theme: "light", // Default theme
       showSettings: false, // Toggle for settings panel
+      showSidebar: window.innerWidth > 768, // Sidebar visible by default on larger screens
       languages: [
         { code: "malay", name: "Malaysia", image: "path/to/malaysia-flag.png" },
         { code: "en", name: "English", image: "path/to/english-flag.png" },
@@ -138,16 +147,43 @@ export default {
   },
   methods: {
     changeLanguage(lang) {
+      if (!this.languages.find((l) => l.code === lang)) {
+        console.error("Invalid language:", lang);
+        return;
+      }
       this.$i18n.locale = lang; // Change the language dynamically
+      console.log("Language changed to:", lang);
     },
     changeTheme(newTheme) {
+      const validThemes = ["light", "dark"];
+      if (!validThemes.includes(newTheme)) {
+        console.error("Invalid theme:", newTheme);
+        return;
+      }
       this.theme = newTheme; // Change the theme dynamically
+      console.log("Theme changed to:", newTheme);
     },
     toggleSettings() {
+      console.log("Toggling settings panel:", !this.showSettings);
       this.showSettings = !this.showSettings; // Toggle settings panel
     },
+    toggleSidebar() {
+      this.showSidebar = !this.showSidebar; // Toggle sidebar visibility
+    },
+    handleResize() {
+      this.showSidebar = window.innerWidth > 768; // Adjust visibility based on screen size
+    },
+  },
+  mounted() {
+    // Listen for window resize events to adjust sidebar visibility
+    window.addEventListener("resize", this.handleResize);
+  },
+  beforeUnmount() {
+    // Clean up the event listener
+    window.removeEventListener("resize", this.handleResize);
   },
 };
+
 </script>
 
 <style>
@@ -156,7 +192,7 @@ export default {
 .light {
   --background-color:rgb(248, 255, 247);
   --text-color: #333;
-  --header-background: linear-gradient(to right, #4CAF50, #81C784);
+  --header-background:rgb(184, 197, 196);
   --header-text-color: white;
   --button-background: #fff;
   --button-text-color:rgb(29, 211, 35);
@@ -175,7 +211,7 @@ export default {
 .dark {
   --background-color:rgb(61, 71, 60);
   --text-color: #f7f7f7;
-  --header-background: #333333;
+  --header-background:rgb(78, 131, 83);
   --header-text-color: #fff;
   --button-background: #444444;
   --button-text-color: #f7f7f7;
@@ -201,7 +237,7 @@ body {
 }
 
 header {
-  background-color: #f7f7f7;
+  background-color: var(--header-background);
   padding: 20px;
   text-align: center;
   font-family: Arial, sans-serif;
@@ -222,7 +258,6 @@ header .intro p {
 header .social-links {
   list-style: none;
   padding: 0;
-  display: flex;
   justify-content: center;
   gap: 20px;
 }
@@ -245,19 +280,117 @@ header .social-links a:hover {
 header .social-links i {
   margin-right: 8px;
 }
+
+/* Top Navigation Bar */
+.top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+}
+
+.top-nav .toggle-btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.top-nav .toggle-btn:hover {
+  background-color: #81C784;
+}
+
+.top-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 15px;
+}
+
+.top-nav ul li {
+  display: inline-block;
+}
+
+.top-nav ul li a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.top-nav ul li a:hover {
+  color: #81C784;
+}
+
 /* Sidebar Styles */
+
+.bodyContent {
+  margin-bottom: 50px; /* Space for the footer height */
+  transition: margin-left 0.3s ease; /* Smooth transition */
+}
 .sidebar {
   width: 250px;
   min-height: 100vh;
+  height: 100%;
   background-color: var(--sidebar-background);
   color: var(--sidebar-text-color);
   position: fixed;
   top: 0;
-  left: 0;
-  padding: 20px;
+  left: 0; /* Initially hidden */
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   text-align: center;
+  transition: left 0.3s ease; /* Smooth transition for sliding */
 }
+
+.sidebar.is-visible {
+  left: 0; /* Slide in */
+}
+
+.sidebar.collapsed {
+  width: 0; /* Collapse to small width */
+  overflow: hidden; /* Hide content when collapsed */
+}
+
+
+
+@media (min-width: 769px) {
+  .sidebar {
+    left: 0; /* Always visible on larger screens */
+  }
+  .sidebar.collapsed {
+    left: 0; /* Keep in position when collapsed */
+  }
+    .bodyContent {
+    width: 100%; /* Full width on mobile */
+  }
+  
+}
+
+
+
+
+
+.bodyContent {
+  position: relative;
+  transition: margin-left 0.3s ease, width 0.3s ease; /* Smooth transition */
+  margin-left: 0;
+  width: 100%; /* Default full width */
+}
+
+.bodyContent.sidebar-open {
+  margin-left: 250px; /* Matches the sidebar width when open */
+  width: calc(100% - 250px); /* Adjust width when sidebar is open */
+}
+
+.bodyContent.sidebar-collapsed {
+  margin-left: 0; /* Matches the sidebar width when collapsed */
+}
+
 
 /* Profile Picture */
 .profile-picture {
@@ -366,13 +499,6 @@ main {
   color: var(--action-btn-hover-text);
 }
 
-/* Main Content */
-main {
-  padding: 20px;
-  max-width: 800px;
-  margin: auto;
-}
-
 section {
   margin-bottom: 30px;
 }
@@ -400,35 +526,29 @@ section h2 {
 }
 
 /* Footer */
-footer {
+.footer {
+  background-color: var(--sidebar-background); /* Use a custom color or theme variable */
+  color: var(--sidebar-text-color); /* Use a custom text color or theme variable */
   text-align: center;
-  padding: 20px;
-  background-color: #4CAF50;
-  color: white;
+  padding: 5px 0; /* Compact padding */
+  position: fixed; /* Stick the footer to the bottom of the viewport */
+  bottom: 0;
+  left: 0;
+  width: 100%; /* Full width across the screen */
+  font-size: 12px; /* Compact font size */
+  box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow for separation */
+  z-index: 1000; /* Ensure it stays above other elements */
 }
 
-footer ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-}
-
-footer ul li a {
-  color: white;
-  font-weight: bold;
-  transition: color 0.3s;
-}
-
-footer ul li a:hover {
-  color: #81C784;
+.footer p {
+  margin: 0; /* Remove default margin for compact spacing */
+  line-height: 1.2; /* Adjust line height for tighter spacing */
 }
 
 /* Floating Settings Button */
 .settings-btn {
   position: fixed;
-  bottom: 20px;
+  bottom: 50px;
   right: 20px;
   width: 50px;
   height: 50px;
@@ -449,7 +569,7 @@ footer ul li a:hover {
 /* Settings Panel */
 .settings-panel {
   position: fixed;
-  bottom: 80px;
+  bottom: 110px;
   right: 20px;
   width: 250px;
   background-color: var(--sidebar-background);
