@@ -10,5 +10,6 @@ export default {
     work_experience_title : "Working Experience",
     company_mesiniaga_jobscope : "bla",
     my_project: "Projek saya",
+    download_resume : "Muat Turun PDF"
   };
   

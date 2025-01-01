@@ -9,6 +9,7 @@ export default {
     professional_summary_content : "bla bla",
     work_experience_title : "Working Experience",
     company_mesiniaga_jobscope : "bla",
-    my_project: "My Project"
+    my_project: "Project",
+    download_resume : "Download PDF"
 
   };

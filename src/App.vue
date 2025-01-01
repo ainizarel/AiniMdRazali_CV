@@ -10,8 +10,50 @@
     <div class="profile-picture">
       <img :src="require('@/assets/profilepic.jpg')" alt="Profile Picture" />
     </div>
+
+    <!-- Summary Section -->
+    <div class="summary">
+      <p>
+        I am a developer with over 4 years of industrial experience and 7 years of programming, including my university studies and work as a part-time developer. Married with two children, I balance my love for technology with family life and a passion for travel, which inspires my creativity and fuels my drive.
+      </p>
+    </div>
+
+    <!-- Languages Section -->
+    <div class="languages">
+      <h2>Languages</h2>
+      <ul>
+        <li>
+          <span>Malay</span>
+          <div class="stars">
+            ★★★★★
+          </div>
+        </li>
+        <li>
+          <span>English</span>
+          <div class="stars">
+            ★★★★★
+          </div>
+        </li>
+        <li>
+          <span>Arabic</span>
+          <div class="stars">
+            ★★☆☆☆
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Experience Section -->
+    <div class="experience">
+      <h2>Experience</h2>
+      <p>5+ Years in Software Development</p>
+      <div class="striped-bar">
+        <div class="bar" style="width: 80%;"></div>
+      </div>
+    </div>
   </div>
 </aside>
+
 
 <div :class="['bodyContent', showSidebar ? 'sidebar-open' : 'sidebar-collapsed']">
 <!-- Top Navigation Bar -->
@@ -24,36 +66,47 @@
         <li><a href="#skills">{{ $t('skills') }}</a></li>
         <li><a href="#projects">{{ $t('my_project') }}</a></li>
         <li>
-        <a href="/public/CV-Aini.pdf" download="CV-Aini.pdf" class="download-resume">
-          {{ $t('download_resume') }}
-        </a>
+          <a href="https://drive.google.com/uc?export=download&id=1c_gpC9DjNm-5UNJ96xPeLiJdOTKiKkQd" download="CV-Aini.pdf" class="download-resume">
+            {{ $t('download_resume') }}
+          </a>
         </li>
   </ul>
 </nav>
  <header>
     <div class="intro">
       <h1>AINI MD. RAZALI</h1>
+      <p class="tagline">
+      Full-Stack Developer | Mobile Developer | Problem Solver | Lifelong Learner
+      </p>
+      <p class="location">
+      📍 Kuala Lumpur, Malaysia
+      </p>
+
       <p>
         {{ $t('contact') }}: 
         <a href="mailto:ainizarel96@gmail.com">ainizarel96@gmail.com</a> |  <a href="https://wasap.my/+60134919140" target="_blank" > (+60) 13-4919140 </a>
       </p>
-      <ul class="social-links">
-        <li>
-          <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
-            <font-awesome-icon :icon="['fab', 'linkedin']" /> LinkedIn
-          </a>
-        </li>
-        <li>
-          <a href="https://github.com" target="_blank" aria-label="GitHub">
-            <font-awesome-icon :icon="['fab', 'github']" /> GitHub
-          </a>
-        </li>
-        <li>
-          <a href="mailto:ainizare96@gmail.com" aria-label="Email">
-            <font-awesome-icon :icon="['fas', 'envelope']" /> Email
-          </a>
-        </li>
-      </ul>
+ <ul class="social-links">
+  <li>
+    <a href="https://www.linkedin.com/in/ainimdrazali/" target="_blank" aria-label="LinkedIn" class="tooltip">
+      <font-awesome-icon :icon="['fab', 'linkedin']" />
+      <span class="tooltip-text">LinkedIn</span>
+    </a>
+  </li>
+  <li>
+    <a href="https://github.com/ainizarel" target="_blank" aria-label="GitHub" class="tooltip">
+      <font-awesome-icon :icon="['fab', 'github']" />
+      <span class="tooltip-text">GitHub</span>
+    </a>
+  </li>
+  <li>
+    <a href="mailto:ainizare96@gmail.com" aria-label="Email" class="tooltip">
+      <font-awesome-icon :icon="['fas', 'envelope']" />
+      <span class="tooltip-text">Email</span>
+    </a>
+  </li>
+</ul>
+
     </div>
   </header>
     <main>
@@ -93,6 +146,10 @@
       </section>
       <section id="education">
         <h2>Education</h2>
+        <p><strong>University Name</strong> - Bachelor's Degree in [Field of Study]</p>
+      </section>
+       <section id="project">
+        <h2>Project Involved / Developed</h2>
         <p><strong>University Name</strong> - Bachelor's Degree in [Field of Study]</p>
       </section>
     </main>
@@ -281,6 +338,43 @@ header .social-links i {
   margin-right: 8px;
 }
 
+  .social-links {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+    padding: 0;
+  }
+
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .tooltip-text {
+    visibility: hidden;
+    width: 100px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Adjust based on positioning */
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.85rem;
+  }
+
+  .tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+  }
+
 /* Top Navigation Bar */
 .top-nav {
   display: flex;
@@ -329,10 +423,6 @@ header .social-links i {
 
 /* Sidebar Styles */
 
-.bodyContent {
-  margin-bottom: 50px; /* Space for the footer height */
-  transition: margin-left 0.3s ease; /* Smooth transition */
-}
 .sidebar {
   width: 250px;
   min-height: 100vh;
@@ -365,15 +455,95 @@ header .social-links i {
   .sidebar.collapsed {
     left: 0; /* Keep in position when collapsed */
   }
-    .bodyContent {
-    width: 100%; /* Full width on mobile */
-  }
+
   
 }
 
 
 
+.content {
+  padding: 10px;
+  text-align: center;
+}
 
+/* Section Titles */
+h2 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.5rem;
+  color: #333333;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #0077b6;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* Languages Section */
+.languages ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.languages li {
+  margin: 10px 0;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+  color: #555555;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.languages li .stars {
+  color: #ffd700;
+  font-size: 1.2rem;
+}
+
+/* Experience Section */
+.experience {
+  margin-top: 20px;
+}
+
+.striped-bar {
+  width: 100%;
+  height: 20px;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  margin-top: 10px;
+}
+
+.striped-bar .bar {
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    #0077b6 25%,
+    #0096c7 25%,
+    #0096c7 50%,
+    #0077b6 50%,
+    #0077b6 75%,
+    #0096c7 75%
+  );
+  background-size: 40px 40px;
+  animation: moveStripes 1s linear infinite;
+  border-radius: 10px;
+}
+
+/* Animation for Striped Effect */
+@keyframes moveStripes {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 40px 0;
+  }
+}
+
+/* Hover and Animation Effects */
+.sidebar:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease-in-out;
+}
 
 .bodyContent {
   position: relative;
@@ -388,6 +558,7 @@ header .social-links i {
 }
 
 .bodyContent.sidebar-collapsed {
+  width: 100%; /* Default full width */
   margin-left: 0; /* Matches the sidebar width when collapsed */
 }
 
@@ -436,6 +607,7 @@ main {
   background-color: var(--background-color); /* Matches body background */
   color: var(--text-color); /* Matches body text color */
   padding: 20px 0;
+  width:100%
 }
 
 .action-btn {

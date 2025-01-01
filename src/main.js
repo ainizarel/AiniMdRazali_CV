@@ -5,12 +5,13 @@ import App from "./App.vue";
 import { messages } from "./i18n";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons'; // Brand icons
 
 // Import specific icons
 import { faEnvelope, faUser } from '@fortawesome/free-solid-svg-icons';
 
 // Add icons to the library
-library.add(faEnvelope, faUser);
+library.add(faLinkedin, faGithub, faEnvelope, faUser);
 
 // Create i18n instance
 const i18n = createI18n({
