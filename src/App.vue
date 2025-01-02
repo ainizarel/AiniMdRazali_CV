@@ -11,13 +11,6 @@
       <img :src="require('@/assets/profilepic.jpg')" alt="Profile Picture" />
     </div>
 
-    <!-- Summary Section -->
-    <div class="summary">
-      <p>
-         I am a developer with over 4 years of working experience and 7 years of software development, including my university studies and as a part-time developer. Married with two children, I balance my love for technology with family life and a passion for travel, which inspires my creativity and fuels my drive. 
-      </p>
-    </div>
-
     <div class="languages">
       <h2>Languages</h2>
       <ul>
@@ -40,9 +33,13 @@
     <!-- Experience Section -->
     <div class="experience">
       <h2>Experience Summary</h2>
-      <p>5+ Years in Software Development</p>
+      <p>5+ Years in Website Development</p>
       <div class="striped-bar">
-        <div class="bar" style="width: 80%;"></div>
+        <div class="bar" style="width: 90%;"></div>
+      </div>
+      <p>2+ Years in Mobile Development</p>
+      <div class="striped-bar">
+        <div class="bar" style="width: 70%;"></div>
       </div>
     </div>
   </div>
@@ -102,21 +99,33 @@
     </a>
   </li>
 </ul>
-
-    </div>
+</div>
   </header>
+
     <main>
+    
+      <section id="summary">
+        <h2>{{ $t('professional_summary_title') }}</h2>
+        <p>{{ $t('professional_summary_content') }}</p>
+      </section>
       <section id="experience">
         <h2>{{ $t('work_experience_title') }}</h2>
-        <div class="timeline">
-          <div class="timeline-item" v-for="job in jobs" :key="job.id">
+          <div class="timeline">
+        <div
+          class="timeline-item"
+          v-for="job in jobs"
+          :key="job.id"
+          @click="navigateTo(job.url)"
+          :title="'Click here to know about ' + job.company" 
+          style="cursor: pointer;"
+        >
             <div class="timeline-date">
-              <h1>{{ job.date }}</h1>
+              <h1>✔️{{ job.date }}</h1>               
               <p v-if="job.isCurrent">
-                <strong>{{ calculateDuration(job.startDate) }}</strong>
+                <strong> -----  {{ calculateDuration(job.startDate) }}</strong>
               </p>
             </div>
-            <div class="timeline-content">
+            <div class="timeline-content"  style="padding-left: 50px;">
               <h3>
                 <font-awesome-icon :icon="['fas', 'building']" /> {{ job.company }}
               </h3>
@@ -135,40 +144,37 @@
       <section id="skills">
         <h2>Skills</h2>
         <div class="skill-category">
-        <h3>Soft Skills</h3>
+        <h3> ✔️ Technical Skills</h3>
+        </div>
+        <div class="skill-category-content" style="padding-left: 50px;">
           <h3>Frontend Development</h3>
           <p>
             Proficient in <strong>ReactJS, VueJS, HTML5, CSS, cshtml, Bootstrap, JavaScript,</strong> and <strong>Flutter</strong> for building responsive and user-friendly interfaces.<br />
             Experienced in mobile app development using <strong>PhoneGap, Xcode (iOS IDE),</strong> and <strong>Android Studio (Android IDE).</strong>
           </p>
-        </div>
-        <div class="skill-category">
+
           <h3>Backend Development</h3>
           <p>
             Basic knowledge of <strong>C#, MVC .Net, Django,</strong> and <strong>Google Apps Script,</strong> with hands-on experience in creating simple backend solutions.<br />
             Beginner-level experience with <strong>Microsoft SQL, MongoDB,</strong> and <strong>Firebase</strong> for database management tasks.
           </p>
-        </div>
-        <div class="skill-category">
+
           <h3>Version Control & CI/CD</h3>
           <p>
             Hands-on experience with <strong>GitHub</strong> for version control and basic CI/CD workflows to streamline development processes.
           </p>
-        </div>
-        <div class="skill-category">
+
           <h3>Integration & Optimization</h3>
           <p>
             Strong understanding of <strong>RESTful API integration</strong> to enable seamless communication between systems.<br />
             Familiarity with tools like <strong>Webpack</strong> and <strong>NPM</strong> for modern development workflows and optimization.
           </p>
-        </div>
-        <div class="skill-category">
+
           <h3>Methodologies</h3>
           <p>
             Experience in both <strong>Agile</strong> and <strong>Waterfall</strong> methodologies for managing and delivering projects effectively.
           </p>
-        </div>
-        <div class="skill-category">
+
           <h3>Performance & Documentation</h3>
           <p>
             Experienced in <strong>performance tuning, memory management,</strong> and ensuring application responsiveness.<br />
@@ -176,7 +182,8 @@
           </p>
         </div>
         <div class="skill-category">
-          <h3>Soft Skills</h3>
+          <h3>✔️ Soft Skills</h3>
+          <div class="skill-category-content" style="padding-left: 50px;">
           <p>
             <strong>Problem-Solving:</strong> Strong analytical abilities to tackle complex technical challenges effectively.<br />
             <strong>Team Collaboration:</strong> Excellent communication and teamwork skills, fostering a productive work environment.<br />
@@ -184,6 +191,7 @@
             <strong>Adaptability:</strong> Quickly learns and applies new tools, frameworks, and technologies in dynamic environments.<br />
             <strong>Attention to Detail:</strong> Ensures precision and accuracy in code, design, and workflows.
           </p>
+          </div>
         </div>
       </section>
 
@@ -193,7 +201,7 @@
       </section>
        <section id="project">
         <h2>Project Involved / Developed</h2>
-        <p><strong>University Name</strong> - Bachelor's Degree in [Field of Study]</p>
+        <p>currently this section is under maintenance</p>
       </section>
     </main>
 <footer class="footer">
@@ -237,23 +245,48 @@ export default {
     return {
       jobs: [
         {
-          id: 1,
+          id: 4,
           company: "Mesiniaga Sdn Bhd",
-          role: "Software Engineer",
+          role: "Software Developer",
           description: this.$t('company_mesiniaga_jobscope'),
           date: "2022 - Present",
           startDate: "2022-11-01", // Start date in YYYY-MM-DD format
           isCurrent: true, // Indicates if this is the current job
+          url: "https://mesiniaga.com.my/about-mesiniaga/", // Internal link for Mesiniaga page
+        },
+        {
+          id: 3,
+          company: "OrangeFIN Asia Sdn Bhd (Insite My)",
+          role: "Analyst Programmer",
+          description: this.$t('company_orangefin_jobscope'),
+          date: "2021 - 2022",
+          startDate: "",
+          endDate: "", // End date for non-current jobs
+          isCurrent: false,
+          url: "https://orangefinasia.com/"
         },
         {
           id: 2,
-          company: "Company XYZ",
-          role: "Intern",
-          description: "Collaborated on a project to streamline processes, reducing lead times by 15%.",
-          date: "2021 - 2023",
-          startDate: "2021-06-01",
-          endDate: "2023-01-14", // End date for non-current jobs
+          company: "Universiti Teknologi PETRONAS",
+          role: "Lab Programming Tutor for Foundation",
+          description: this.$t('company_utp_jobscope'),
+          date: "2019 - 2020",
+          startDate: "",
+          endDate: "", // End date for non-current jobs
           isCurrent: false,
+          url: "https://www.utp.edu.my/Pages/Home.aspx"
+        },
+                        {
+          id: 1,
+          company: "PETRONAS Chemical Ammonia Sdn Bhd",
+          role: "Trainee - Developer for Human Resource System",
+          description: this.$t('company_pcasb_jobscope'),
+          date: "2017",
+          startDate: "",
+          endDate: "", // End date for non-current jobs
+          isCurrent: false,
+          url:"https://drive.google.com/file/d/1rwJFUqysPH0pYY_-zWpfhZuj4if5Wfsk/preview"
+
         },
       ],
       selectedLanguage: "en", // Default language
@@ -303,6 +336,27 @@ export default {
     handleResize() {
       this.showSidebar = window.innerWidth > 768; // Adjust visibility based on screen size
     },
+    navigateTo(url) {
+        if (!url) {
+          console.error("Invalid URL");
+          return;
+        }
+
+        // Check if the URL is external (starts with "http://" or "https://")
+        if (url.startsWith("http://") || url.startsWith("https://")) {
+          window.open(url, "_blank"); // Open external URL in a new tab
+        } else {
+          if (this.$router) {
+            // Open internal route in a new tab
+            const newTab = window.open();
+            newTab.opener = null; // Security best practice
+            newTab.location = this.$router.resolve(url).href;
+          } else {
+            console.warn("Router is not available. Redirecting using window.open");
+            window.open(url, "_blank"); // Fallback for internal navigation
+          }
+        }
+      },
   },
   mounted() {
     // Listen for window resize events to adjust sidebar visibility
@@ -336,10 +390,11 @@ export default {
   --action-btn-hover-text: #ffffff;
   --select-bg:rgb(255, 249, 249);
   --toggle-btn-bg : rgba(141, 156, 141, 0.32);
-  --toggle-btn-hover : #4CAF50; 
+  --toggle-btn-hover : rgb(128, 220, 229);
   --footer-background : rgb(184, 197, 196);
   --footer-text-color : rgb(61, 71, 60);
   --profile-pic-border :rgba(255, 255, 255, 0.55);
+  --section-text-color : rgb(97, 122, 129);
 }
 
 /* Dark Theme Variables */
@@ -573,7 +628,8 @@ header .social-links i {
 
 
 .content {
-  max-height: 94%;
+  min-height:96%;
+  max-height: 96%;
   padding: 5px;
   text-align: center;
   overflow: auto;
@@ -754,7 +810,8 @@ main {
   background-color: var(--background-color); /* Matches body background */
   color: var(--text-color); /* Matches body text color */
   padding-left: 100px;
-  width:100%
+  padding-bottom: 100px;
+  max-width: 100%;
 }
 
 .action-btn {
@@ -823,8 +880,8 @@ section {
 }
 
 section h2 {
-  color: #4CAF50;
-  border-bottom: 2px solid #4CAF50;
+  color: var(--section-text-color);
+  border-bottom: 3px solid rgb(81, 156, 167);
   padding-bottom: 5px;
 }
 
@@ -1033,15 +1090,20 @@ section h2 {
 
 .skill-category h3 {
   font-size: 1.5rem;
-  color: #4CAF50;
+  padding-top:10px;
   margin-bottom: 10px;
   text-transform: capitalize;
+}
+
+.skill-category {
+  padding: 30px;
 }
 
 .skill-category p {
   font-size: 1rem;
   line-height: 1.6;
   color: #555;
+  padding:20px;
 }
 
 .skill-category strong {
@@ -1116,7 +1178,6 @@ section h2 {
 
 /* Content Section */
 .timeline-content {
-  background: #f9f9f9;
   padding: 1rem;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
