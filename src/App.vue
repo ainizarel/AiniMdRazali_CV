@@ -722,12 +722,11 @@ section h2 {
   line-height: 1.2; /* Adjust line height for tighter spacing */
   font-size: 90%;
 }
-
 /* Floating Settings Button */
 .settings-btn {
   position: fixed;
-  bottom: 50px;
-  right: 20px;
+  bottom: 9vh; /* Use relative units for better responsiveness */
+  right: 2vw; /* Relative to viewport width */
   width: 50px;
   height: 50px;
   background-color: #4CAF50;
@@ -737,19 +736,21 @@ section h2 {
   cursor: pointer;
   font-size: 20px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 .settings-btn:hover {
   background-color: #81C784;
+  transform: scale(1.1); /* Slight zoom effect on hover */
 }
 
 /* Settings Panel */
 .settings-panel {
   position: fixed;
-  bottom: 110px;
-  right: 20px;
-  width: 250px;
+  bottom: 17vh; /* Space above the button */
+  right: 3vw;
+  width: 90vw; /* Responsive width */
+  max-width: 400px; /* Limit max width */
   background-color: var(--sidebar-background);
   color: var(--sidebar-text-color);
   padding: 20px;
@@ -758,25 +759,43 @@ section h2 {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  z-index: 1000; /* Ensure it stays on top */
 }
 
 .settings-panel h3 {
   margin: 0 0 10px;
+  font-size: 1.2em;
+  text-align: center;
 }
 
-/* Optional: Style the language switcher */
+/* Theme Buttons */
+.theme-switcher button {
+  padding: 10px;
+  margin: 5px 0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.theme-switcher button:hover {
+  background-color: #ccc; /* Change to your desired hover color */
+}
+
+/* Language Switcher */
 .language-switcher {
   margin-top: 10px;
   text-align: center;
 }
 
 .language-switcher select {
-  padding: 5px;
+  padding: 10px;
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: var(--select-bg);
   cursor: pointer;
+  width: 100%; /* Full width */
 }
 
 .language-switcher option {
@@ -784,10 +803,70 @@ section h2 {
   align-items: center;
 }
 
+/* Flag Image */
 .flag-image {
   width: 20px;
   height: 14px;
   margin-right: 8px;
 }
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .settings-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .settings-panel {
+    width: fit-content;
+    padding: 15px;
+  }
+
+  .settings-panel h3 {
+    font-size: 1em;
+  }
+
+  .theme-switcher button {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .language-switcher select {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .settings-btn {
+    bottom: 7vh;
+    right: 1vw;
+    width: 35px;
+    height: 35px;
+    font-size: 14px;
+  }
+
+  .settings-panel {
+    width: fit-content;
+    bottom: 12vh;
+    padding: 10px;
+  }
+
+  .settings-panel h3 {
+    font-size: 0.9em;
+  }
+
+  .theme-switcher button {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  .language-switcher select {
+    font-size: 12px;
+    padding: 6px;
+  }
+}
+
 
 </style>
