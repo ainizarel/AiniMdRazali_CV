@@ -285,6 +285,8 @@ export default {
 
 /* General Styles */
 body {
+  width: fit-content;
+  min-width: 100%;
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
@@ -452,9 +454,7 @@ header .social-links i {
   .sidebar {
     left: 0; /* Always visible on larger screens */
   }
-  .sidebar.collapsed {
-    left: 0; /* Keep in position when collapsed */
-  }
+
 
   
 }
