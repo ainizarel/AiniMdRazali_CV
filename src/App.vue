@@ -1159,7 +1159,7 @@ section h2 {
   top: 0;
   width: 10px;
   height: 10px;
-  background: #555; /* Dot color */
+  background:rgba(85, 85, 85, 0); /* Dot color */
   border-radius: 50%; /* Makes it a circle */
   z-index: 1;
 }
@@ -1173,7 +1173,7 @@ section h2 {
 .timeline-date h1{
   margin-bottom: 1rem;
   font-weight: bold;
-  color: #ffffff;
+  color:rgb(3, 53, 62);
 }
 
 /* Content Section */
