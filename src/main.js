@@ -6,12 +6,13 @@ import { messages } from "./i18n";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons'; // Brand icons
+import '@fortawesome/fontawesome-free/css/all.css';
 
 // Import specific icons
-import { faEnvelope, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faUser, faBars, faBuilding, faBriefcase, faClock } from '@fortawesome/free-solid-svg-icons';
 
 // Add icons to the library
-library.add(faLinkedin, faGithub, faEnvelope, faUser);
+library.add(faLinkedin, faGithub, faEnvelope, faUser, faBars, faBuilding, faBriefcase, faClock);
 
 // Create i18n instance
 const i18n = createI18n({

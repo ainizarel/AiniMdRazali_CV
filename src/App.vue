@@ -14,34 +14,28 @@
     <!-- Summary Section -->
     <div class="summary">
       <p>
-        I am a developer with over 4 years of industrial experience and 7 years of programming, including my university studies and work as a part-time developer. Married with two children, I balance my love for technology with family life and a passion for travel, which inspires my creativity and fuels my drive.
+         I am a developer with over 4 years of working experience and 7 years of software development, including my university studies and as a part-time developer. Married with two children, I balance my love for technology with family life and a passion for travel, which inspires my creativity and fuels my drive. 
       </p>
     </div>
 
-    <!-- Languages Section -->
     <div class="languages">
       <h2>Languages</h2>
       <ul>
         <li>
-          <span>Malay</span>
-          <div class="stars">
-            ★★★★★
-          </div>
+          <span>✔️ Malay</span>
+          <span class="proficiency" data-tooltip="Malay is the mother tongue">Native</span>
         </li>
         <li>
-          <span>English</span>
-          <div class="stars">
-            ★★★★★
-          </div>
+          <span>✔️ English</span>
+          <span class="proficiency" data-tooltip="English is spoken fluently">Fluent</span>
         </li>
         <li>
-          <span>Arabic</span>
-          <div class="stars">
-            ★★☆☆☆
-          </div>
+          <span>✔️ Arabic</span>
+          <span class="proficiency" data-tooltip="Can read and understand basic Arabic">Basic</span>
         </li>
       </ul>
     </div>
+
 
     <!-- Experience Section -->
     <div class="experience">
@@ -59,7 +53,9 @@
 <!-- Top Navigation Bar -->
 
 <nav class="top-nav">
-  <button @click="toggleSidebar" class="toggle-btn">Toggle Sidebar</button>
+  <button @click="toggleSidebar" class="toggle-btn">
+    <i class="fas fa-bars"></i> <!-- Sidebar toggle icon -->
+  </button>
   <ul>
         <li><a href="#education">{{ $t('education') }}</a></li>
         <li><a href="#experience">{{ $t('experience') }}</a></li>
@@ -112,38 +108,85 @@
     <main>
       <section id="experience">
         <h2>{{ $t('work_experience_title') }}</h2>
-        <ul>
-          <li>
-            <strong>Mesiniaga Sdn Bhd</strong> - Software Engineer  
-            <p>{{ $t('company_mesiniaga_jobscope') }}</p>
-          </li>
-          <li>
-            <strong>Company XYZ</strong> - Intern  
-            <p>Collaborated on a project to streamline processes, reducing lead times by 15%.</p>
-          </li>
-        </ul>
+        <div class="timeline">
+          <div class="timeline-item" v-for="job in jobs" :key="job.id">
+            <div class="timeline-date">
+              <h1>{{ job.date }}</h1>
+              <p v-if="job.isCurrent">
+                <strong>{{ calculateDuration(job.startDate) }}</strong>
+              </p>
+            </div>
+            <div class="timeline-content">
+              <h3>
+                <font-awesome-icon :icon="['fas', 'building']" /> {{ job.company }}
+              </h3>
+              <p>
+                <font-awesome-icon :icon="['fas', 'briefcase']" /> {{ job.role }}
+              </p>
+              <p>{{ job.description }}</p>
+            </div>
+          </div>
+        </div>
       </section>
+
+
+
+
       <section id="skills">
         <h2>Skills</h2>
-        <div class="skill">
-          <span>JavaScript</span>
-          <div class="progress-bar">
-            <div class="progress" style="width: 90%;"></div>
-          </div>
+        <div class="skill-category">
+        <h3>Soft Skills</h3>
+          <h3>Frontend Development</h3>
+          <p>
+            Proficient in <strong>ReactJS, VueJS, HTML5, CSS, cshtml, Bootstrap, JavaScript,</strong> and <strong>Flutter</strong> for building responsive and user-friendly interfaces.<br />
+            Experienced in mobile app development using <strong>PhoneGap, Xcode (iOS IDE),</strong> and <strong>Android Studio (Android IDE).</strong>
+          </p>
         </div>
-        <div class="skill">
-          <span>Vue.js</span>
-          <div class="progress-bar">
-            <div class="progress" style="width: 85%;"></div>
-          </div>
+        <div class="skill-category">
+          <h3>Backend Development</h3>
+          <p>
+            Basic knowledge of <strong>C#, MVC .Net, Django,</strong> and <strong>Google Apps Script,</strong> with hands-on experience in creating simple backend solutions.<br />
+            Beginner-level experience with <strong>Microsoft SQL, MongoDB,</strong> and <strong>Firebase</strong> for database management tasks.
+          </p>
         </div>
-        <div class="skill">
-          <span>UI/UX Design</span>
-          <div class="progress-bar">
-            <div class="progress" style="width: 75%;"></div>
-          </div>
+        <div class="skill-category">
+          <h3>Version Control & CI/CD</h3>
+          <p>
+            Hands-on experience with <strong>GitHub</strong> for version control and basic CI/CD workflows to streamline development processes.
+          </p>
+        </div>
+        <div class="skill-category">
+          <h3>Integration & Optimization</h3>
+          <p>
+            Strong understanding of <strong>RESTful API integration</strong> to enable seamless communication between systems.<br />
+            Familiarity with tools like <strong>Webpack</strong> and <strong>NPM</strong> for modern development workflows and optimization.
+          </p>
+        </div>
+        <div class="skill-category">
+          <h3>Methodologies</h3>
+          <p>
+            Experience in both <strong>Agile</strong> and <strong>Waterfall</strong> methodologies for managing and delivering projects effectively.
+          </p>
+        </div>
+        <div class="skill-category">
+          <h3>Performance & Documentation</h3>
+          <p>
+            Experienced in <strong>performance tuning, memory management,</strong> and ensuring application responsiveness.<br />
+            Adept at writing clear, structured <strong>technical documentation</strong> to enhance team collaboration and knowledge sharing.
+          </p>
+        </div>
+        <div class="skill-category">
+          <h3>Soft Skills</h3>
+          <p>
+            <strong>Problem-Solving:</strong> Strong analytical abilities to tackle complex technical challenges effectively.<br />
+            <strong>Team Collaboration:</strong> Excellent communication and teamwork skills, fostering a productive work environment.<br />
+            <strong>Proactive Mindset:</strong> Focused on continuous improvement, contributing to process enhancements and innovative solutions.<br />
+            <strong>Adaptability:</strong> Quickly learns and applies new tools, frameworks, and technologies in dynamic environments.<br />
+            <strong>Attention to Detail:</strong> Ensures precision and accuracy in code, design, and workflows.
+          </p>
         </div>
       </section>
+
       <section id="education">
         <h2>Education</h2>
         <p><strong>University Name</strong> - Bachelor's Degree in [Field of Study]</p>
@@ -192,6 +235,27 @@ export default {
   name: "App",
   data() {
     return {
+      jobs: [
+        {
+          id: 1,
+          company: "Mesiniaga Sdn Bhd",
+          role: "Software Engineer",
+          description: this.$t('company_mesiniaga_jobscope'),
+          date: "2022 - Present",
+          startDate: "2022-11-01", // Start date in YYYY-MM-DD format
+          isCurrent: true, // Indicates if this is the current job
+        },
+        {
+          id: 2,
+          company: "Company XYZ",
+          role: "Intern",
+          description: "Collaborated on a project to streamline processes, reducing lead times by 15%.",
+          date: "2021 - 2023",
+          startDate: "2021-06-01",
+          endDate: "2023-01-14", // End date for non-current jobs
+          isCurrent: false,
+        },
+      ],
       selectedLanguage: "en", // Default language
       theme: "light", // Default theme
       showSettings: false, // Toggle for settings panel
@@ -203,6 +267,15 @@ export default {
     };
   },
   methods: {
+    calculateDuration(startDate) {
+      const start = new Date(startDate);
+      const now = new Date();
+      const diffTime = Math.abs(now - start);
+      const diffMonths = Math.floor(diffTime / (1000 * 60 * 60 * 24 * 30));
+      const diffDays = Math.floor((diffTime % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
+
+      return `${diffMonths} months and ${diffDays} days`;
+    },
     changeLanguage(lang) {
       if (!this.languages.find((l) => l.code === lang)) {
         console.error("Invalid language:", lang);
@@ -252,16 +325,21 @@ export default {
   --header-background:rgb(184, 197, 196);
   --header-text-color: white;
   --button-background: #fff;
-  --button-text-color:rgb(29, 211, 35);
-  --button-hover-background: #4CAF50;
+  --button-text-color:rgb(22, 24, 22);
+  --button-hover-background: rgb(128, 220, 229);
   --button-hover-text-color: white;
-  --sidebar-background:rgb(225, 237, 213);
+  --sidebar-background:rgba(89, 126, 135, 0.52);
   --sidebar-text-color: #333;
-  --action-btn-bg:rgb(255, 255, 255);
-  --action-btn-text: #4CAF50;
-  --action-btn-hover-bg: #4CAF50;
+  --action-btn-bg:rgb(45, 95, 99);
+  --action-btn-text:rgb(17, 17, 17);
+  --action-btn-hover-bg:rgb(128, 220, 229);
   --action-btn-hover-text: #ffffff;
   --select-bg:rgb(255, 249, 249);
+  --toggle-btn-bg : rgba(141, 156, 141, 0.32);
+  --toggle-btn-hover : #4CAF50; 
+  --footer-background : rgb(184, 197, 196);
+  --footer-text-color : rgb(61, 71, 60);
+  --profile-pic-border :rgba(255, 255, 255, 0.55);
 }
 
 /* Dark Theme Variables */
@@ -305,7 +383,7 @@ header {
 header .intro h1 {
   margin: 0;
   font-size: 2rem;
-  color: #333;
+  color: #ffffff;
 }
 
 header .intro p {
@@ -388,7 +466,7 @@ header .social-links i {
 }
 
 .top-nav .toggle-btn {
-  background-color: #4CAF50;
+  background-color: var(--toggle-btn-bg);
   color: white;
   border: none;
   border-radius: 5px;
@@ -398,7 +476,7 @@ header .social-links i {
 }
 
 .top-nav .toggle-btn:hover {
-  background-color: #81C784;
+  background-color: var(--toggle-btn-hover);
 }
 
 .top-nav ul {
@@ -456,10 +534,42 @@ header .social-links i {
   .sidebar {
     left: 0; /* Always visible on larger screens */
   }
-
-
-  
 }
+
+/* Custom scrollbar */
+.sidebar::-webkit-scrollbar {
+  width: 10px; /* Width of the scrollbar */
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: #e0e0e0; /* Track color */
+  border-radius: 5px; /* Optional: Round corners */
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: #4CAF50; /* Scrollbar color */
+  border-radius: 5px; /* Optional: Round corners */
+  border: 2px solid #e0e0e0; /* Add padding effect */
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: #81C784; /* Color on hover */
+}
+
+/* Ensure compatibility for non-WebKit browsers */
+.sidebar {
+  scrollbar-width: thin; /* For Firefox */
+  scrollbar-color:#536767 rgba(83, 103, 103, 0.64);
+}
+
+.summary {
+  font-size: 1rem;
+  text-align: justify;
+  line-height: 1.6;
+  color: #555;
+  padding: 7px;
+}
+
 
 
 .content {
@@ -482,24 +592,53 @@ h2 {
 
 /* Languages Section */
 .languages ul {
-  list-style-type: none;
+  list-style: none;
   padding: 0;
+  margin: 15px;
 }
 
 .languages li {
-  margin: 10px 0;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 1rem;
-  color: #555555;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  margin-bottom: 10px;
 }
 
-.languages li .stars {
-  color: #ffd700;
-  font-size: 1.2rem;
+.languages span {
+  font-size: 1rem;
 }
+
+.languages .proficiency {
+  color:rgb(44, 95, 149); /* Blue for distinction */
+}
+
+.proficiency {
+  position: relative;
+  cursor: pointer;
+}
+
+.proficiency::after {
+  content: attr(data-tooltip); /* Fetch tooltip text from data-tooltip attribute */
+  position: absolute;
+  bottom: 100%; /* Position above the text */
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  padding: 5px 5px;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  z-index: 10;
+}
+
+.proficiency:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
 
 /* Experience Section */
 .experience {
@@ -510,7 +649,7 @@ h2 {
 
 .striped-bar {
   width: 100%;
-  height: 20px;
+  height: 10px;
   background-color: #e0e0e0;
   border-radius: 10px;
   overflow: hidden;
@@ -570,16 +709,19 @@ h2 {
 
 /* Profile Picture */
 .profile-picture {
+  margin-top:30px;
   margin-bottom: 20px;
 }
 
 .profile-picture img {
-  width: 120px;
-  height: 120px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%; /* Makes the image circular */
   object-fit: cover;
-  border: 3px solid var(--button-hover-background); /* Optional: Add a border */
+  border: 3px solid var(--profile-pic-border); /* Optional: Add a border */
+  box-shadow: 1px -1px 10px 4px rgb(20 0 0 / 56%);
 }
+
 
 /* Navigation Links */
 .sidebar nav ul {
@@ -611,7 +753,7 @@ h2 {
 main {
   background-color: var(--background-color); /* Matches body background */
   color: var(--text-color); /* Matches body text color */
-  padding: 20px 0;
+  padding-left: 100px;
   width:100%
 }
 
@@ -638,8 +780,8 @@ main {
 }
 
 .theme-switcher button {
-  margin: 0 5px;
-  padding: 5px 10px;
+  margin: 7px;
+  padding: 10px;
   background-color: var(--button-background);
   color: var(--button-text-color);
   border: none;
@@ -704,8 +846,8 @@ section h2 {
 
 /* Footer */
 .footer {
-  background-color: var(--sidebar-background); /* Use a custom color or theme variable */
-  color: var(--sidebar-text-color); /* Use a custom text color or theme variable */
+  background-color: var(--footer-background); /* Use a custom color or theme variable */
+  color: var(--footer-text-color); /* Use a custom text color or theme variable */
   text-align: center;
   padding: 5px 0; /* Compact padding */
   position: fixed; /* Stick the footer to the bottom of the viewport */
@@ -729,7 +871,7 @@ section h2 {
   right: 2vw; /* Relative to viewport width */
   width: 50px;
   height: 50px;
-  background-color: #4CAF50;
+  background-color:var(--action-btn-bg);
   color: white;
   border: none;
   border-radius: 50%;
@@ -740,7 +882,7 @@ section h2 {
 }
 
 .settings-btn:hover {
-  background-color: #81C784;
+  background-color: var(--action-btn-hover-bg);
   transform: scale(1.1); /* Slight zoom effect on hover */
 }
 
@@ -749,7 +891,7 @@ section h2 {
   position: fixed;
   bottom: 17vh; /* Space above the button */
   right: 3vw;
-  width: 90vw; /* Responsive width */
+  width: fit-content; /* Responsive width */
   max-width: 400px; /* Limit max width */
   background-color: var(--sidebar-background);
   color: var(--sidebar-text-color);
@@ -866,6 +1008,121 @@ section h2 {
     font-size: 12px;
     padding: 6px;
   }
+
+  #skills {
+  padding: 50px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  max-width: 900px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+#skills h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.skill-category {
+  margin-bottom: 20px;
+}
+
+.skill-category h3 {
+  font-size: 1.5rem;
+  color: #4CAF50;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+}
+
+.skill-category p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+.skill-category strong {
+  color: #333;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  #skills {
+    padding: 30px;
+  }
+
+  #skills h2 {
+    font-size: 1.8rem;
+  }
+
+  .skill-category h3 {
+    font-size: 1.3rem;
+  }
+
+  .skill-category p {
+    font-size: 0.9rem;
+  }
+}
+/* Timeline Container */
+.timeline {
+  position: relative;
+  padding-left: 40px; /* Space for the line and dots */
+}
+
+/* Timeline Line */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 20px; /* Adjust based on layout */
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #ddd; /* Line color */
+}
+
+/* Timeline Item */
+.timeline-item {
+  position: relative;
+  margin-bottom: 2rem; /* Space between items */
+}
+
+/* Dot for Each Item */
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 15px; /* Adjust based on the line position */
+  top: 0;
+  width: 10px;
+  height: 10px;
+  background: #555; /* Dot color */
+  border-radius: 50%; /* Makes it a circle */
+  z-index: 1;
+}
+
+/* Date Section */
+.timeline-date {
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.timeline-date h1{
+  margin-bottom: 1rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+/* Content Section */
+.timeline-content {
+  background: #f9f9f9;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
 }
 
 
