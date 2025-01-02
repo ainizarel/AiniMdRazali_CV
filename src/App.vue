@@ -45,7 +45,7 @@
 
     <!-- Experience Section -->
     <div class="experience">
-      <h2>Experience</h2>
+      <h2>Experience Summary</h2>
       <p>5+ Years in Software Development</p>
       <div class="striped-bar">
         <div class="bar" style="width: 80%;"></div>
@@ -417,6 +417,8 @@ header .social-links i {
   color: white;
   text-decoration: none;
   transition: color 0.3s;
+  font-size: 90%;
+  margin: 5px;
 }
 
 .top-nav ul li a:hover {
@@ -460,10 +462,11 @@ header .social-links i {
 }
 
 
-
 .content {
-  padding: 10px;
+  max-height: 94%;
+  padding: 5px;
   text-align: center;
+  overflow: auto;
 }
 
 /* Section Titles */
@@ -500,7 +503,9 @@ h2 {
 
 /* Experience Section */
 .experience {
-  margin-top: 20px;
+  margin: 5px;
+  margin-bottom: 30px;
+
 }
 
 .striped-bar {
@@ -715,6 +720,7 @@ section h2 {
 .footer p {
   margin: 0; /* Remove default margin for compact spacing */
   line-height: 1.2; /* Adjust line height for tighter spacing */
+  font-size: 90%;
 }
 
 /* Floating Settings Button */
