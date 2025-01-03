@@ -22,7 +22,7 @@ export default {
     tag4: "Lifelong Learner",
     view_my_work: "View My Work",
     professional_summary_title : "Professional Summary",
-    professional_summary_content : "Aini Razali is a passionate developer with over 4 years of experience in mobile and web development and 7 years of overall software development expertise. Proficient in technologies like React.js, Vue.js, Flutter, JavaScript, CSS, HTML5, C#, and VB .Net, she also has experience with CI/CD pipelines using GitHub Workflow, RESTful API integration, and IDEs like Android Studio, Xcode, and Visual Studio. She is familiar with version control systems and has released apps on both the Google Play Store and Apple App Store. A creative professional with innovative ideas, she is eager to contribute her skills and grow further with a company that values her expertise and vision.",
+    professional_summary_content : "Aini Razali is a passionate developer with over 4 years of working experience in mobile and web development and 7 years of overall software development involvement. Proficient in technologies like React.js, Vue.js, Flutter, JavaScript, CSS, HTML5, C#, and VB .Net, she also has experience with CI/CD pipelines using GitHub Workflow, RESTful API integration, and IDEs like Android Studio, Xcode, and Visual Studio. She is familiar with version control systems and has released apps on both the Google Play Store and Apple App Store. A creative professional with innovative ideas, she is eager to contribute her skills and grow further with a company that values her expertise and vision.",
     work_experience_title : "Working Experience",
     my_project : "Portfolio",
     download_resume : "Download PDF",
