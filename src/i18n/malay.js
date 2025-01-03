@@ -23,7 +23,7 @@ export default {
     view_my_work: "Lihat Hasil Kerja Saya",
     professional_summary_title : "Ringkasan Professional",
     professional_summary_content : "Aini Razali adalah seorang 'jurutera teknologi' yang mempunyai minat yang mendalam dengan lebih daripada 4 tahun pengalaman dalam pembinaan aplikasi mudah alih dan web di syarikat IT yang dikenali serta 7 tahun pengalaman keseluruhan dalam pembangunan teknologi sistem. Mahir dalam bahasa sistem seperti React.js, Vue.js, Flutter, JavaScript, CSS, HTML5, C#, dan VB .Net, beliau juga berpengalaman dalam proses 'CI/CD pipelines' menggunakan GitHub Workflow, integrasi API RESTful, serta perisian IDE seperti Android Studio, Xcode, dan Visual Studio.Beliau juga biasa menggunakan sistem kawalan versi (.git) dan telah berjaya menerbitkan aplikasi di Google Play Store dan Apple App Store. Sebagai seorang profesional yang kreatif dan berwawasan, beliau ingin menyumbangkan kemahiran serta berkembang bersama syarikat yang menghargai visi dan kepakarannya.",
-    work_experience_title : "Working Experience",
+    work_experience_title : "Pengalaman Bekerja",
     my_project: "Portfolio",
     download_resume : "Muat Turun PDF",
 
