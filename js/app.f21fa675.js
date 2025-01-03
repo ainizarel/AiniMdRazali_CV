@@ -2,7 +2,7 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 9878:
+/***/ 1113:
 /***/ (function(__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) {
 
 
@@ -14,7 +14,7 @@ var vue_i18n = __webpack_require__(5931);
 var runtime_core_esm_bundler = __webpack_require__(6768);
 // EXTERNAL MODULE: ./node_modules/@vue/shared/dist/shared.esm-bundler.js
 var shared_esm_bundler = __webpack_require__(4232);
-;// ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/App.vue?vue&type=template&id=0415a516
+;// ./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib/index.js??clonedRuleSet-40.use[1]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[3]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/App.vue?vue&type=template&id=3e56302e
 
 const _hoisted_1 = {
   id: "body"
@@ -230,7 +230,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     class: "fas fa-graduation-cap"
   }, null, -1)), _cache[28] || (_cache[28] = (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("strong", null, " SMA (Atas) Sultan Zainal Abidin (2009-2011) ", -1)), (0,runtime_core_esm_bundler/* createTextVNode */.eW)(" - " + (0,shared_esm_bundler/* toDisplayString */.v_)(_ctx.$t('education_PMR')), 1)]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("p", null, [_cache[29] || (_cache[29] = (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("i", {
     class: "fas fa-graduation-cap"
-  }, null, -1)), _cache[30] || (_cache[30] = (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("strong", null, " SRI Al-Amin Kerteh (2001-2008) ", -1)), (0,runtime_core_esm_bundler/* createTextVNode */.eW)(" - " + (0,shared_esm_bundler/* toDisplayString */.v_)(_ctx.$t('education_UPSR')), 1)])]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("section", _hoisted_34, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("h2", null, (0,shared_esm_bundler/* toDisplayString */.v_)(_ctx.$t('my_project')), 1), _cache[31] || (_cache[31] = (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("p", null, "We are sorry, currently this section is under maintenance", -1))])]), _cache[32] || (_cache[32] = (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("footer", {
+  }, null, -1)), _cache[30] || (_cache[30] = (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("strong", null, "SRI Al-Amin Kerteh (2001-2008) ", -1)), (0,runtime_core_esm_bundler/* createTextVNode */.eW)(" - " + (0,shared_esm_bundler/* toDisplayString */.v_)(_ctx.$t('education_UPSR')), 1)])]), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("section", _hoisted_34, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("h2", null, (0,shared_esm_bundler/* toDisplayString */.v_)(_ctx.$t('my_project')), 1), _cache[31] || (_cache[31] = (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("p", null, "We are sorry, currently this section is under maintenance", -1))])]), _cache[32] || (_cache[32] = (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("footer", {
     class: "footer"
   }, [(0,runtime_core_esm_bundler/* createElementVNode */.Lk)("p", null, [(0,runtime_core_esm_bundler/* createTextVNode */.eW)(" This resume website is proudly built by "), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("strong", null, "Aini Razali"), (0,runtime_core_esm_bundler/* createTextVNode */.eW)(" using "), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("strong", null, "Vue.js"), (0,runtime_core_esm_bundler/* createTextVNode */.eW)("."), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("br"), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("strong", null, " Hire me "), (0,runtime_core_esm_bundler/* createTextVNode */.eW)(" if you think I’m the right talent for your team! ")])], -1))], 2), (0,runtime_core_esm_bundler/* createElementVNode */.Lk)("button", {
     class: "settings-btn",
@@ -249,7 +249,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }, (0,shared_esm_bundler/* toDisplayString */.v_)(language.name), 9, _hoisted_38);
   }), 128))], 544), [[runtime_dom_esm_bundler/* vModelSelect */.u1, $data.selectedLanguage]])])])) : (0,runtime_core_esm_bundler/* createCommentVNode */.Q3)("", true)])], 2);
 }
-;// ./src/App.vue?vue&type=template&id=0415a516
+;// ./src/App.vue?vue&type=template&id=3e56302e
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/esnext.iterator.constructor.js
 var esnext_iterator_constructor = __webpack_require__(8992);
@@ -397,10 +397,10 @@ var esnext_iterator_find = __webpack_require__(2577);
 });
 ;// ./src/App.vue?vue&type=script&lang=js
  
-;// ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-12.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/App.vue?vue&type=style&index=0&id=0415a516&lang=css
+;// ./node_modules/mini-css-extract-plugin/dist/loader.js??clonedRuleSet-12.use[0]!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-12.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-12.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./src/App.vue?vue&type=style&index=0&id=3e56302e&lang=css
 // extracted by mini-css-extract-plugin
 
-;// ./src/App.vue?vue&type=style&index=0&id=0415a516&lang=css
+;// ./src/App.vue?vue&type=style&index=0&id=3e56302e&lang=css
 
 // EXTERNAL MODULE: ./node_modules/vue-loader/dist/exportHelper.js
 var exportHelper = __webpack_require__(1241);
@@ -750,9 +750,9 @@ module.exports = __webpack_require__.p + "img/profilepic.ba4c86e8.jpg";
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [504], function() { return __webpack_require__(9878); })
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [504], function() { return __webpack_require__(1113); })
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=app.2997de21.js.map
+//# sourceMappingURL=app.f21fa675.js.map
