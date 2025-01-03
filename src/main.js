@@ -9,7 +9,7 @@ import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons'; // Br
 import '@fortawesome/fontawesome-free/css/all.css';
 
 // Import specific icons
-import { faEnvelope, faUser, faBars, faBuilding, faBriefcase, faClock } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faUser, faBars, faBuilding, faBriefcase, faClock} from '@fortawesome/free-solid-svg-icons';
 
 // Add icons to the library
 library.add(faLinkedin, faGithub, faEnvelope, faUser, faBars, faBuilding, faBriefcase, faClock);

@@ -12,36 +12,49 @@
     </div>
 
     <div class="languages">
-      <h2>Languages</h2>
+      <h2>{{ $t('languages') }}</h2>
       <ul>
         <li>
-          <span>✔️ Malay</span>
-          <span class="proficiency" data-tooltip="Malay is the mother tongue">Native</span>
+          <span>✔️ {{ $t('lang_malay') }}</span>
+          <span class="proficiency" data-tooltip="">{{ $t('lang_native') }}</span>
         </li>
         <li>
-          <span>✔️ English</span>
-          <span class="proficiency" data-tooltip="English is spoken fluently">Fluent</span>
+          <span>✔️ {{ $t('lang_en') }}</span>
+          <span class="proficiency" data-tooltip="">{{ $t('lang_fluent') }}</span>
         </li>
         <li>
-          <span>✔️ Arabic</span>
-          <span class="proficiency" data-tooltip="Can read and understand basic Arabic">Basic</span>
+          <span>✔️ {{ $t('lang_arabic') }}</span>
+          <span class="proficiency" data-tooltip="">{{ $t('lang_basic') }}</span>
         </li>
       </ul>
     </div>
 
 
     <!-- Experience Section -->
-    <div class="experience">
-      <h2>Experience Summary</h2>
-      <p>5+ Years in Website Development</p>
-      <div class="striped-bar">
-        <div class="bar" style="width: 90%;"></div>
-      </div>
-      <p>2+ Years in Mobile Development</p>
-      <div class="striped-bar">
-        <div class="bar" style="width: 70%;"></div>
-      </div>
+ <div class="experience-sidebar">
+  <h2> {{ $t('experience_summary') }}</h2>
+  <p> {{ $t('experience_summary_1') }}</p>
+  <div class="striped-bar">
+    <div class="bar" style="width:  50%;"></div>
+    <div class="scale">
+      <span>Junior</span>
+      <span>Mid</span>
+      <span>Senior</span>
+      <span>Expert</span>
     </div>
+  </div>
+  <p>{{ $t('experience_summary_2') }}</p>
+  <div class="striped-bar">
+    <div class="bar" style="width: 20%;"></div>
+    <div class="scale">
+      <span>Junior</span>
+      <span>Mid</span>
+      <span>Senior</span>
+      <span>Expert</span>
+    </div>
+  </div>
+</div>
+
   </div>
 </aside>
 
@@ -59,7 +72,7 @@
         <li><a href="#skills">{{ $t('skills') }}</a></li>
         <li><a href="#projects">{{ $t('my_project') }}</a></li>
         <li>
-          <a href="https://drive.google.com/uc?export=download&id=1c_gpC9DjNm-5UNJ96xPeLiJdOTKiKkQd" download="CV-Aini.pdf" class="download-resume">
+          <a href="https://drive.google.com/uc?export=download&id=1Aa_otRhjhp9jf6RTpt2J3i1GU3hOMbMu" download="CV-Aini.pdf" class="download-resume">
             {{ $t('download_resume') }}
           </a>
         </li>
@@ -69,7 +82,7 @@
     <div class="intro">
       <h1>AINI MD. RAZALI</h1>
       <p class="tagline">
-      Full-Stack Developer | Mobile Developer | Problem Solver | Lifelong Learner
+      {{ $t('tag1') }} |  {{ $t('tag2') }} |  {{ $t('tag3') }} |  {{ $t('tag4') }}
       </p>
       <p class="location">
       📍 Kuala Lumpur, Malaysia
@@ -108,6 +121,7 @@
         <h2>{{ $t('professional_summary_title') }}</h2>
         <p>{{ $t('professional_summary_content') }}</p>
       </section>
+
       <section id="experience">
         <h2>{{ $t('work_experience_title') }}</h2>
           <div class="timeline">
@@ -130,9 +144,20 @@
                 <font-awesome-icon :icon="['fas', 'building']" /> {{ job.company }}
               </h3>
               <p>
-                <font-awesome-icon :icon="['fas', 'briefcase']" /> {{ job.role }}
+                <font-awesome-icon :icon="['fas', 'briefcase']" /> {{ $t(`company_${job.id}_title`) }}
               </p>
-              <p>{{ job.description }}</p>
+              <p>{{ $t(`company_${job.id}_jobscope`) }}</p>
+              <a
+                v-if="job.recommendationLetterUrl"
+                :href="job.recommendationLetterUrl"
+                target="_blank"
+                class="recommendation-link"
+                @click.stop
+              >
+               <i class="fas fa-download" style="margin-right: 5px;"></i>
+                View Recommendation Letter
+              </a>
+
             </div>
           </div>
         </div>
@@ -142,14 +167,14 @@
 
 
       <section id="skills">
-        <h2>Skills</h2>
+        <h2>{{ $t('skills') }}</h2>
         <div class="skill-category">
-        <h3> ✔️ Technical Skills</h3>
+        <h3> ✔️ {{ $t('tech_skills') }}</h3>
         </div>
         <div class="skill-category-content" style="padding-left: 50px;">
           <h3>Frontend Development</h3>
           <p>
-            Proficient in <strong>ReactJS, VueJS, HTML5, CSS, cshtml, Bootstrap, JavaScript,</strong> and <strong>Flutter</strong> for building responsive and user-friendly interfaces.<br />
+            Proficient in <strong>ReactJS, VueJS, HTML5, CSS, cshtml, Bootstrap, JavaScript, MUI Material</strong> and <strong>Flutter</strong> for building responsive and user-friendly interfaces.<br />
             Experienced in mobile app development using <strong>PhoneGap, Xcode (iOS IDE),</strong> and <strong>Android Studio (Android IDE).</strong>
           </p>
 
@@ -182,7 +207,7 @@
           </p>
         </div>
         <div class="skill-category">
-          <h3>✔️ Soft Skills</h3>
+          <h3>✔️ {{ $t('soft_skills') }}</h3>
           <div class="skill-category-content" style="padding-left: 50px;">
           <p>
             <strong>Problem-Solving:</strong> Strong analytical abilities to tackle complex technical challenges effectively.<br />
@@ -196,12 +221,31 @@
       </section>
 
       <section id="education">
-        <h2>Education</h2>
-        <p><strong>University Name</strong> - Bachelor's Degree in [Field of Study]</p>
+        <h2>{{ $t('education') }}</h2>
+        <p>
+          <i class="fas fa-graduation-cap"></i>
+          <strong> Universiti Teknologi PETRONAS (2014-2018) </strong> - {{ $t('education_degree') }}
+        </p>
+        <p>
+          <i class="fas fa-graduation-cap"></i>
+          <strong> Universiti Teknologi PETRONAS (2014) </strong> - {{ $t('education_foundation') }}
+        </p>
+        <p>
+          <i class="fas fa-graduation-cap"></i>
+          <strong> SMA (Atas) Sultan Zainal Abidin (2012-2013) </strong> - {{ $t('education_SPM') }}
+        </p>
+        <p>
+          <i class="fas fa-graduation-cap"></i>
+          <strong> SMA (Atas) Sultan Zainal Abidin (2009-2011) </strong> - {{ $t('education_PMR') }}
+        </p>
+        <p>
+          <i class="fas fa-graduation-cap"></i>
+          <strong> SRI Al-Amin Kerteh (2001-2008) </strong> - {{ $t('education_UPSR') }}
+        </p>
       </section>
        <section id="project">
-        <h2>Project Involved / Developed</h2>
-        <p>currently this section is under maintenance</p>
+        <h2>{{ $t('my_project') }}</h2>
+        <p>We are sorry, currently this section is under maintenance</p>
       </section>
     </main>
 <footer class="footer">
@@ -244,51 +288,56 @@ export default {
   data() {
     return {
       jobs: [
-        {
-          id: 4,
-          company: "Mesiniaga Sdn Bhd",
-          role: "Software Developer",
-          description: this.$t('company_mesiniaga_jobscope'),
-          date: "2022 - Present",
-          startDate: "2022-11-01", // Start date in YYYY-MM-DD format
-          isCurrent: true, // Indicates if this is the current job
-          url: "https://mesiniaga.com.my/about-mesiniaga/", // Internal link for Mesiniaga page
-        },
-        {
-          id: 3,
-          company: "OrangeFIN Asia Sdn Bhd (Insite My)",
-          role: "Analyst Programmer",
-          description: this.$t('company_orangefin_jobscope'),
-          date: "2021 - 2022",
-          startDate: "",
-          endDate: "", // End date for non-current jobs
-          isCurrent: false,
-          url: "https://orangefinasia.com/"
-        },
-        {
-          id: 2,
-          company: "Universiti Teknologi PETRONAS",
-          role: "Lab Programming Tutor for Foundation",
-          description: this.$t('company_utp_jobscope'),
-          date: "2019 - 2020",
-          startDate: "",
-          endDate: "", // End date for non-current jobs
-          isCurrent: false,
-          url: "https://www.utp.edu.my/Pages/Home.aspx"
-        },
-                        {
-          id: 1,
-          company: "PETRONAS Chemical Ammonia Sdn Bhd",
-          role: "Trainee - Developer for Human Resource System",
-          description: this.$t('company_pcasb_jobscope'),
-          date: "2017",
-          startDate: "",
-          endDate: "", // End date for non-current jobs
-          isCurrent: false,
-          url:"https://drive.google.com/file/d/1rwJFUqysPH0pYY_-zWpfhZuj4if5Wfsk/preview"
-
-        },
-      ],
+      {
+        id: 4,
+        company: "Mesiniaga Sdn Bhd",
+        date: "2022 - Present",
+        startDate: "2022-11-01",
+        isCurrent: true,
+        url: "https://mesiniaga.com.my/about-mesiniaga/",
+        recommendationLetterUrl: "",
+      },
+      {
+        id: 3,
+        company: "OrangeFIN Asia Sdn Bhd (Insite My)",
+        date: "2021 - 2022",
+        startDate: "",
+        endDate: "",
+        isCurrent: false,
+        url: "https://orangefinasia.com/",
+        recommendationLetterUrl: "",
+      },
+      {
+        id: 2,
+        company: "Universiti Teknologi PETRONAS",
+        date: "2019 - 2020",
+        startDate: "",
+        endDate: "",
+        isCurrent: false,
+        url: "https://www.utp.edu.my/Pages/Home.aspx",
+        recommendationLetterUrl: "",
+      },
+      {
+        id: 1,
+        company: "PETRONAS Chemical Ammonia Sdn Bhd",
+        date: "2017",
+        startDate: "",
+        endDate: "",
+        isCurrent: false,
+        url: "https://www.petronas.com/pcg/about-us/our-operations",
+        recommendationLetterUrl: "https://drive.google.com/file/d/1rwJFUqysPH0pYY_-zWpfhZuj4if5Wfsk/preview",
+      },
+      {
+        id: 0,
+        company: "PART TIME",
+        date: "2019",
+        startDate: "",
+        endDate: "",
+        isCurrent: false,
+        url: "",
+        recommendationLetterUrl: "",
+      },
+    ],
       selectedLanguage: "en", // Default language
       theme: "light", // Default theme
       showSettings: false, // Toggle for settings panel
@@ -300,15 +349,18 @@ export default {
     };
   },
   methods: {
-    calculateDuration(startDate) {
-      const start = new Date(startDate);
-      const now = new Date();
-      const diffTime = Math.abs(now - start);
-      const diffMonths = Math.floor(diffTime / (1000 * 60 * 60 * 24 * 30));
-      const diffDays = Math.floor((diffTime % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
+  calculateDuration(startDate) {
+    const start = new Date(startDate);
+    const now = new Date();
+    const diffTime = Math.abs(now - start);
+    const diffMonths = Math.floor(diffTime / (1000 * 60 * 60 * 24 * 30));
+    const diffDays = Math.floor((diffTime % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
 
-      return `${diffMonths} months and ${diffDays} days`;
-    },
+    const months = this.$t('months');
+    const days = this.$t('day');
+
+    return `${diffMonths} ${months} & ${diffDays} ${days}`;
+  },
     changeLanguage(lang) {
       if (!this.languages.find((l) => l.code === lang)) {
         console.error("Invalid language:", lang);
@@ -672,48 +724,30 @@ h2 {
   cursor: pointer;
 }
 
-.proficiency::after {
-  content: attr(data-tooltip); /* Fetch tooltip text from data-tooltip attribute */
-  position: absolute;
-  bottom: 100%; /* Position above the text */
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(0, 0, 0, 0.75);
-  color: #fff;
-  padding: 5px 5px;
-  border-radius: 4px;
-  font-size: 0.875rem;
-  white-space: nowrap;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.2s ease, visibility 0.2s ease;
-  z-index: 10;
-}
-
-.proficiency:hover::after {
-  opacity: 1;
-  visibility: visible;
-}
-
-
-/* Experience Section */
+//experience summary section
 .experience {
   margin: 5px;
   margin-bottom: 30px;
+}
 
+//experience sidebar
+.experience-sidebar {
+  margin: 5px;
+  margin-bottom: 30px;
 }
 
 .striped-bar {
+  position: relative;
   width: 100%;
   height: 10px;
-  background-color: #e0e0e0;
+  background: #e0e0e0;
+  margin-bottom: 30px; /* Add extra space for clarity */
   border-radius: 10px;
-  overflow: hidden;
-  position: relative;
-  margin-top: 10px;
+  overflow: visible; /* Ensure the scale isn't clipped */
+  margin-bottom: 50px;
 }
 
-.striped-bar .bar {
+.bar {
   height: 100%;
   background: linear-gradient(
     45deg,
@@ -729,15 +763,21 @@ h2 {
   border-radius: 10px;
 }
 
-/* Animation for Striped Effect */
-@keyframes moveStripes {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: 40px 0;
-  }
+.scale {
+  display: flex;
+  justify-content: space-between;
+  position: relative; /* Ensure it's not hidden */
+  margin-top: 5px; /* Create space below the bar */
+  font-size: 12px;
+  color: #333;
+  z-index: 10; /* Ensure it's above other elements */
 }
+
+.scale span {
+  text-align: center;
+  flex: 1;
+}
+
 
 /* Hover and Animation Effects */
 .sidebar:hover {
@@ -809,9 +849,11 @@ h2 {
 main {
   background-color: var(--background-color); /* Matches body background */
   color: var(--text-color); /* Matches body text color */
-  padding-left: 100px;
+  padding-left: 15%;
+  padding-right: 15%;
   padding-bottom: 100px;
   max-width: 100%;
+  text-align: justify;
 }
 
 .action-btn {
