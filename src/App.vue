@@ -240,7 +240,7 @@
         </p>
         <p>
           <i class="fas fa-graduation-cap"></i>
-          <strong> SRI Al-Amin Kerteh (2001-2008) </strong> - {{ $t('education_UPSR') }}
+          <strong>SRI Al-Amin Kerteh (2001-2008) </strong> - {{ $t('education_UPSR') }}
         </p>
       </section>
        <section id="project">
