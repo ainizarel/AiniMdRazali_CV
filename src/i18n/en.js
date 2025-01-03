@@ -3,7 +3,7 @@ export default {
     experience: "Working Experience",
     skills: "Skills",
     education: "Education",
-    education_degree: "Bachelor's Degree - Second Class Upper (CGPA: 3.02)",
+    education_degree: "Bachelor's Degree - Second Class Upper (CGPA: 3.07)",
     education_foundation: "Foundation - (CGPA: 3.02)",
     education_SPM: "SPM - 8A 2B",
     education_PMR: "Straight A's - 9A",

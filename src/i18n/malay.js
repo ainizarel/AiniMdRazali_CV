@@ -3,7 +3,7 @@ export default {
     experience: "Pengalaman Kerja",
     skills: "Kemahiran",
     education: "Pendidikan",
-    education_degree: "Ijazah Sarjana Muda - Kelas Kedua Atas (CGPA: 3.02)",
+    education_degree: "Ijazah Sarjana Muda - Kelas Kedua Atas (CGPA: 3.07)",
     education_foundation: "Asasi - (CGPA: 3.02)",
     education_SPM: "SPM - 8A 2B",
     education_PMR: "Straight A's - 9A",
